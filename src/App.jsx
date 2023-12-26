@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Auth from "./components/Auth";
 import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
-import { db } from "./config/firebase";
+import { auth, db } from "./config/firebase";
 import './App.css'
 
 function App() {
@@ -44,7 +44,8 @@ function App() {
       {
         title: newMovieTitle,
         relDate: newReleaseDate,
-        gotOscar: isNewMovieOscar
+        gotOscar: isNewMovieOscar,
+        id: auth?.currentUser?.uid  
       }
       ).then((res) => {getData() ,console.log(res, "data successfully added in firebase db")})
       .catch((err) => {console.log(err.message, "some error in uploading new record")})
