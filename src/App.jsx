@@ -108,7 +108,7 @@ function App() {
       <h2>Here is the Movies list</h2>
       {
         movieList.map((items) =>(
-           <div style={{border: "2px dashed black"}} key={items.id}>
+           <div style={{border: "2px dashed red", marginBottom: "10px"}} key={items.id}>
               <h3 style={{color: items.gotOscar ? "green": "red"}}>{items.title}</h3>
                <h4>{items.relDate}</h4>
                <h4>{items.gotOscar}</h4>
